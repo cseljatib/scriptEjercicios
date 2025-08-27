@@ -1,147 +1,23 @@
-Sitio donde se almacenan los scripts de [[https://devtools.r-lib.org/][R]] de los ejercicios estipulados en el libro *Biometría y Modelación Forestal* del Profesor [[https://eljatib.com][Christian Salas-Eljatib]] de la [[https://uchile.cl][Universidad de Chile]].
+* Sitio donde se almacenan los ejercicios del libro
 
+En este repositorio se almacenan los scripts de [[https://devtools.r-lib.org/][R]] de los ejercicios estipulados en el libro *Biometría y Modelación Forestal* del Profesor [[https://eljatib.com][Christian Salas-Eljatib]] de la [[https://uchile.cl][Universidad de Chile]].
 
+Para el correcto uso de los scripts, es necesario tener instalados los paquetes =biometrics= y =datana= en su versión de R. 
 
-La idea es que siguiendo un
-
-El trabajo con el repositorio y el paquete es el siguiente
-+ 1. Copiar el repositorio al PC
-+ 2. Realizar cambios en la carpeta respectiva
-+ 3. Subir los cambios al repositorio.
-
-El flujo de trabajo se realiza en su mayoría con el paquete =devtools=.
-
-* Trabajo en el repositorio
-** Para clonar el repositorio
-Asegurarse de tener instalado =git-lfs=, lo cual se logra mediante lo siguiente en el
-terminal 
-#+begin_src bash
-sudo apt install git-lfs && git lfs install
-#+end_src
-
-Para clonar el repositorio de biometrics-cleanup directamente, usar el siguiente comando
-
-#+begin_src bash
-git clone -b biometrics-cleanup git@github.com:cseljatib/library_biometrics.git
-#+end_src
-
-El =-b= asegura que se clonará la rama (branch) biometrics-cleanup, por lo que después no es necesario un checkout.
-
-Note que para poder lograr esto, hay que generar un key-pass en el computador
-donde se esta trabajando.
-
-* Trabajo en el paquete mismo
-** Archivos, carpetas claves y procedimiento
-El archivo =00compilaMaestro.R= es el que se debe ejecutar en R, una alternativa es mediante 
-
-#+begin_src R
-source("00compilaMaestro.R")
-#+end_src
-
-Este script copia las funciones y los datasets a sus ubicaciones correspondientes (los saca de data-raw).
-
-*** ¿Cómo modificar el paquete?
-bueno, en principio el paquete contiene las siguientes principales secciones
-
-1. Datos
-2. Funciones
-
-Ambas secciones se modifican en la carpeta **data-raw**, dentro de las siguientes sub-carpetas
-
-1. 00csv
-2. 00functions
-*** Creando funciones
-Una nueva función debe ser trabajada en la carpeta =data-raw/00functions=. Si esta función necesitara de algún paquete externo, usar las herramientas de =devtools= para importarlo. *NUNCA* editar el archivo DESCRIPTION para agregar dependencias, gestionarlas todas con =usethis=. *NUNCA* editar el archivo NAMESPACE.
-
-Al elegir si cargar un paquete como dependencia o sólo una función, seguir el siguiente procedimiento:
-
-- Caso 1 :: Mi función necesita una función específica de otro paquete, por ejemplo:
-  
-  #+begin_src R
-  my.fx <- function(x, y){
-    lattice::xyplot(y~x)
-  }
-  #+end_src
-
-  En el ejemplo necesitamos solamente la función =xyplot= del paquete =lattice=, en ese caso importamos dicha función con:
+Por lo tanto, debe primero proceder como sigue
 
   #+begin_src R
-  usethis::use_import_from("lattice", "xyplot")
-  #+end_src
-
-
-- Caso 2 :: Mi función necesita de múltiples funciones de otro paquete, por ejemplo:
-  
-  #+begin_src R
-  my.fx <- function(x){
-    x %>% mutate(esp.ci = case_when(
-                   esp == "nob" ~ "N. obliqua",
-                   esp == "np" ~ "N. pumilio",
-                   TRUE ~ esp
-                 ))
-  }
-  #+end_src
-
-  En el ejemplo mi función necesita el operador =%>%= , la función =mutate= y la función =case_when= del paquete =dplyr=. En este caso es más lógico importar como dependencia el paquete mismo en lugar de sus funciones por separado. Lo hacemos con:
-
-  #+begin_src R
-  usethis::use_package("dplyr")
+  install.packages("biometrics")
+  install.packages("datana")
   #+end_src
   
-*** Creando datasets
-Un nuevo dataset debe ser trabajado en su propia carpeta, por ejemplo  =data-raw/nuevodataset=. Esta carpeta puede tener cualquier número de archivos de distinto tipo, pues no es incluída en la compilación del paquete. Sin embargo, dentro de esta carpeta deben existir siempre 2 archivos:
-
-1. Archivo =nuevodataset.r= : es un script que "trabaja" los datos, en este script la idea es mantener un registro de los cambios hechos a una base de datos original, en conjunto con todas sus transformaciones necesarias para que quede apta para ser incluída en el paquete.
-   El resultado de este script debe ser un csv llamado =nuevodataset.csv= y se debe guardar en =data-raw/00csv=.
-2. Archivo =data-nuevodataset.r= : en este archivo se encuentra la documentación del dataset (importante que empiece con 'data-'). En caso de que en la sección =@examples= se use una función externa, por ejemplo:
-   
+ Para *verificar* que ambos paquetes estan correctamente instalados, ejecute:
 
   #+begin_src R
-  #' @examples
-  #' data(nuevodataset)
-  #' head(nuevodataset)
-  #' lattice::xyplot(y~x, data = nuevodataset)
+  library(biometrics)
+  library(datana)
   #+end_src
-
- Aquí se usa =xyplot= pero _dentro_ de los ejemplos de la función. En este caso *no es necesario importar la función como dependencia* ya que el paquete no necesita =xyplot= para funcionar. En este caso importamos el _paquete_ de =xyplot= (=lattice=) como sugerencia con:
-
-  #+begin_src R
-  usethis::use_package("lattice", type = "Suggests")
-  #+end_src
-
-  *NUNCA* editar el archivo DESCRIPTION para agregar dependencias, gestionarlas todas con =usethis=. *NUNCA* editar el archivo NAMESPACE.
-  
-** Detalles para verificar un buen paquete
-*** Revisando el paquete
-Cargamos las librerías necesarias
-#+begin_src R
-library(devtools)
-#+end_src
-
-*** Checkeando que todo esté ok
-#+begin_src R
-devtools::check()
-#+end_src
-
-*** Compilar paquete
-Esto genera el archivo =.tar.gz=
-#+begin_src R
-devtools::build(path = ".")
-#+end_src
-
-*** Generar pdf
-Esto genera el manual que se ve en la página de CRAN
-#+begin_src R
-devtools::build_manual(path = ".")
-#+end_src
-
-*** Comprobando el paquete
-Esto carga el paquete a la memoria, como si estuviera instalado pero sin instalarlo
-#+begin_src R
-devtools::load_all()
-#+end_src
-
-Version del paquete
+y para verificar la versión del paquete, puede emplear la función =packageVersion()= como sigue
 #+begin_src R
 packageVersion("biometrics")
 #+end_src
