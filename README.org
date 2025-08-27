@@ -1,0 +1,4 @@
+Este es un sitio con los scripts del curso de biometría forestal
+
+dudas a [[mailto:christian.salas@uchile.cl][en este email]]
+
