@@ -1,4 +1,6 @@
-Sitio donde se almacenan los scripts de R de los ejercicios estipulados en el libro **Biometría y Modelación Forestal** del Profesor [[htpps://eljatib.com][Christian Salas-Eljatib]] de la [[htpps://uchile.cl][[[https://uchile.cl][]]Universidad de Chile]].
+Sitio donde se almacenan los scripts de [[https://devtools.r-lib.org/][R]] de los ejercicios estipulados en el libro *Biometría y Modelación Forestal* del Profesor [[https://eljatib.com][Christian Salas-Eljatib]] de la [[https://uchile.cl][Universidad de Chile]].
+
+
 
 La idea es que siguiendo un
 
