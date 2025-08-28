@@ -1,6 +1,6 @@
-##! Script: "ahusa3.r"                                           /
-##- Sobre:  Usando un modelo de ahusamiento para simular        /
-## trozado
+##! Script: "ahusa3.r"                                            /
+##- Sobre:  Usando un modelo de ahusamiento para simular         /
+## trozado                                                      /
 ##+ Detalles:  Estructura de datos y uso de modelo             /
 ##* Ejemplo: Datos de ahusamiento (data=tapereurca2).         /
 ##? Mas detalles: Entre otras cosas, en este ejercicio se:   /
@@ -130,8 +130,8 @@ vol.m3<- volsecc.fx(d1=diam.min,d2=diam.max,l=largo.trozos)
 df.trozos<-data.frame(diam.min,diam.max,largo.trozos, vol.m3)
 df.trozos
 
-#>╔═════════════════╗
-#>║ Fin del script! ║
-#>║ Atte.           ║
-#>║ El profesor     ║
-#>╚═════════════════╝
+#?╔═════════════════╗
+#?║ Fin del script! ║
+#?║ Atte.           ║
+#?║ El profesor     ║
+#?╚═════════════════╝

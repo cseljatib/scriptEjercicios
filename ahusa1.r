@@ -83,8 +83,8 @@ dl <- y*d
 dl
 
 plot(dl ~ hl, type="l", las=1)
-#╔═════════════════╗
-#║ Fin del script! ║
-#║ Atte.           ║
-#║ El profesor     ║
-#╚═════════════════╝
+#+╔═════════════════╗
+#+║ Fin del script! ║
+#+║ Atte.           ║
+#+║ El profesor     ║
+#+╚═════════════════╝
