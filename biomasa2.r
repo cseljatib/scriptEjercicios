@@ -129,10 +129,9 @@ plot(wb.tot~dap,type="l",bty="l")
 lines(dap,wb.fus,col="blue")
 lines(dap,wb.ram,col="red")
 
-#@@@@@@@@@@@@@@@@@
-#eso es todo estimad@s alumn@s
-#disfRuten!
-#saludos
-#C
-#@@@@@@@@@@@@@@@@@
-
+##- =============
+##>eso es todo estimad@s alumn@s
+##>disfRuten!
+##>saludos
+##>C
+##- =============

@@ -91,9 +91,9 @@ summary(df$fuste.p)
 ##3. Ajuste los modelos del script, pero por especie.
 ##- ===================================
 
-#+╔═════════════════╗
-#+║ Fin del script! ║
-#+║ Atte.           ║
-#+║ El profe        ║
-#+╚═════════════════╝
+#>╔═════════════════╗
+#>║ Fin del script! ║
+#>║ Atte.           ║
+#>║ El profe        ║
+#>╚═════════════════╝
 
