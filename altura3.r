@@ -10,7 +10,7 @@
 ##! -----------------------------------------------------/ 
 ##                                                      /
 ##> Profesor: Christian Salas Eljatib                  /
-## E-mail: christian.salas AT uchile DOT cl           /
+##? E-mail: christian.salas AT uchile DOT cl          /
 ## Web: https://eljatib.com                          /
 ##!=================================================/
 
@@ -38,6 +38,9 @@ hist(df$dap)
 
 ##-Dispersion
 plot(atot~dap, data=df)
+
+##- Grafico dispersion con distribucion marginal
+xyhist(x=df$dap,y=df$atot)
 
 ##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ##! III. Ajuste del modelo 1

@@ -6,11 +6,11 @@
 ## + calculan valores ajustados y residuales.                /
 ## + representa sigma.hat.e en porcentaje.                  /
 ## + crea grafico con valores esperados vs diametro para   /
-## los dos modelos.                                             /
+## los dos modelos.                                       /
 ##! -----------------------------------------------------/ 
 ##                                                      /
 ##> Profesor: Christian Salas Eljatib                  /
-## E-mail: christian.salas AT uchile DOT cl           /
+##? E-mail: christian.salas AT uchile DOT cl          /
 ## Web: https://eljatib.com                          /
 ##!=================================================/
 
