@@ -138,7 +138,7 @@ valesta(y.obs=df$atot,y.pred=df$aju)
 valesta(y.obs=df$atot,y.pred=df$aju2)
 
 
-##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+##- ===================================
 ##! Tarea sugerida:
 ## 1. Realice un grafico entre el error de prediccion y el valor
 ## observado
@@ -146,8 +146,8 @@ valesta(y.obs=df$atot,y.pred=df$aju2)
 ## ajustado
 ## 3. Realice un grafico entre el error de prediccion y el diametro
 ## 4. En base a los calculos realizados, ¿Cual modelo seleccionaria?
-## y ¿Por que?. 
-##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+## y ¿Por que?.
+##- ===================================
 
 
 #>╔═════════════════╗
