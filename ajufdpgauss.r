@@ -77,9 +77,9 @@ lines(dbh.l,prob.cd,col="red",type = "o")
          col=c("black","red"),
          lty = c(1,1), pch=c(1,1))
 
-#@@@@@@@@@@@@@@@@@
-#eso es todo estimad@s alumn@s
-#disfRuten!
-#saludos
-#C
-#@@@@@@@@@@@@@@@@@
+#+@@@@@@@@@@@@@@@@@
+#+eso es todo estimad@s alumn@s
+#+disfRuten!
+#+Atte
+#+C
+#+@@@@@@@@@@@@@@@@@
