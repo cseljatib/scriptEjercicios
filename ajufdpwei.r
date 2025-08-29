@@ -40,7 +40,7 @@ pweibull(5,shape=1.6,scale=4)
 pweibull(10,shape=1.6,scale=4)
 
 ##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-##- II. Datos para ejemplo
+##- II. Datos a emplear
 ##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 library(datana)
 head(llancahue2)

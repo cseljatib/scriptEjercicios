@@ -11,14 +11,15 @@
 ## Web: https://eljatib.com                                /
 ##========================================================/
 
-##@@@Atencion en esta seccion de lectura de los datos
-###Atencion: Ud. debe activar la siguiente linea
-#df<-read.csv("trRenoCoi.csv")
-#y desactivar esta
-df <- read.csv(paste(data.dir,"trRenoCoi.csv",sep = "/"))
-##@@@Fin a seccion de lectura de los datos
+##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+##- I. Datos a emplear
+##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+library(biometrics)
+head(standtabCoihue2)
+#Activar siguiente linea para ver metadata
+#?standtabCoihue2
+df <- standtabCoihue2
 
-df
 nha<-df[nrow(df),"nha"]
 gha<-df[nrow(df),"gha"]
 
@@ -72,7 +73,7 @@ frec.rel<-tr2$nha/nha
 plot(dbh.l,frec.rel,col="black",type = "o",las=1,bty="l",
        ylab="Frecuencia relativa",xlab="Diametro (cm)")
 lines(dbh.l,prob.cd,col="red",type = "o")
-  legend("topright",c("Observada","Pdf Gauss"),
+  legend("topright",c("Observada","f.d.p. Gauss"),
          col=c("black","red"),
          lty = c(1,1), pch=c(1,1))
 
