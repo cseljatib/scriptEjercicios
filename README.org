@@ -2,6 +2,8 @@
 
 En este repositorio se almacenan los scripts de [[https://devtools.r-lib.org/][R]] de los ejercicios estipulados en el libro *Biometría y Modelación Forestal* del Profesor [[https://eljatib.com][Christian Salas-Eljatib]] del [[https://biometriaforestal.uchile.cl][Laboratorio de Biometría y Modelación Forestal]] de la [[https://uchile.cl][Universidad de Chile]].
 
+[[www.lun.com][este es link de prueba]]
+
 Para el correcto uso de los scripts, es necesario tener instalados los paquetes =biometrics= y =datana= en su versión de R. 
 
 Por lo tanto, debe primero proceder como sigue
