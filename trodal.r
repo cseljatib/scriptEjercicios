@@ -45,11 +45,14 @@ diff(range(df$dap))/2
 w.amp <- 2
 #ii. asignacion de clase diametrica a cada arbol
 df$clase.d<-(as.integer((df$dap+((w.amp/2)-0.1))/w.amp))*w.amp
+
+table(df$clase.d)
 unique(df$clase.d)
 sort(unique(df$clase.d))
 df
 
-#iii. Creando la tabla rodal
+
+##iii. Creando la tabla rodal
 trodal<-tapply(df$fe, df$clase.d, sum)
 trodal
 #comparar el resultado de 
