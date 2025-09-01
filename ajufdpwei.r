@@ -48,9 +48,12 @@ head(llancahue2)
 #?llancahue
 df <- llancahue2
 dim(df)
+str(df)
+
+descstat(df[,"dap"])
 num.arbs<-nrow(df)
-df$y <- df$dap #la variable aleatoria
-summary(df$y)
+
+##- Densidad del rodal
 sup.plot<-130*70  #en m2
 sup.plot
 sup.plot.ha<-sup.plot/10000 #en hectareas
@@ -59,9 +62,17 @@ fexp<-10000/sup.plot
 nha<-nrow(df)*fexp
 nha
 
+#-- Declarando la variable aleatoria de interes
+df$y <- df$dap #la variable aleatoria
+summary(df$y)
+
+hist(df$y)
+
+histbxp(df$y)
+
 ##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ##- III. Ajustando el modelo de Fdp
-## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+##* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ##+ Ajuste mediante maxima verosimilitud
 
 ##Maximizar la funcion de maxima verosimilitud de la fdp
